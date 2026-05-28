@@ -34,7 +34,7 @@ kubectl get nodes
 
 Go to your EKS resources and connect to **CloudShell** by selecting the icon as shown in the image.
 
-![CloudShell icon](./img/01-cloudshell-icon.png)
+<img width="922" height="464" alt="image" src="https://github.com/user-attachments/assets/aa3ac3ee-98d6-40a2-aabb-5684e964c0ce" />
 
 Verify your AWS identity. Execute the following command:
 
@@ -42,7 +42,7 @@ Verify your AWS identity. Execute the following command:
 aws sts get-caller-identity
 ```
 
-![AWS identity verification](./img/02-aws-identity.png)
+<img width="922" height="205" alt="image" src="https://github.com/user-attachments/assets/b7bd35d1-2772-4dfe-ac5a-2e13c039867c" />
 
 List your EKS clusters in the region where they were created.
 
@@ -52,7 +52,7 @@ Run the following command, replacing the region with the one where your cluster 
 aws eks list-clusters --region us-east-2
 ```
 
-![List EKS clusters](./img/03-list-clusters.png)
+<img width="557" height="167" alt="image" src="https://github.com/user-attachments/assets/dd994d50-cd6c-4586-bf40-858e1b6ff392" />
 
 Configure `kubectl` access to your EKS cluster (update kubeconfig).
 
@@ -62,17 +62,17 @@ Run the following command and replace `CLUSTER_NAME` with the name of the cluste
 aws eks update-kubeconfig --region us-east-2 --name CLUSTER_NAME
 ```
 
-![Update kubeconfig](./img/04-update-kubeconfig.png)
+<img width="922" height="100" alt="image" src="https://github.com/user-attachments/assets/8d894883-9933-483e-83f8-2188107bec59" />
 
 ### 1.2) Prepare the chart
 
 - Select the option **Manage files**
 
-![Manage files option](./img/05-manage-files.png)
+<img width="922" height="230" alt="image" src="https://github.com/user-attachments/assets/aeffea57-8d9c-408b-b6b6-23b70e7cfa58" />
 
 - Upload the ZIP folder
 
-![Upload ZIP folder](./img/06-upload-zip.png)
+<img width="713" height="68" alt="image" src="https://github.com/user-attachments/assets/fb10a57b-8be4-40ee-9ce9-c02b4366478f" />
 
 - Run the following command to extract the ZIP file:
 
@@ -187,7 +187,7 @@ helm install oneconnect . \
 
 > ⚠️ *Note: Don't forget to insert your token in the command.*
 
-![Install command output](./img/07-install-command.png)
+<img width="1524" height="681" alt="image" src="https://github.com/user-attachments/assets/429fa9b8-e0ae-491d-ac03-6852baf11989" />
 
 ### Verify the deployment
 
@@ -203,7 +203,7 @@ kubectl get pods -n oneconnect -w
 
 You should see something like:
 
-![Pods status](./img/08-pods-status.png)
+<img width="922" height="342" alt="image" src="https://github.com/user-attachments/assets/80894d78-aef4-4bd4-9d20-098600e58067" />
 
 ### Verify the services and get the external IP
 
@@ -214,7 +214,7 @@ kubectl get svc -n oneconnect
 
 Look specifically for the ***`internal-frontend`*** service. You should see something like:
 
-![Services list](./img/09-services-list.png)
+<img width="922" height="189" alt="image" src="https://github.com/user-attachments/assets/cf93ecd8-a899-4c2b-9aed-68a8654b4154" />
 
 ### Access the platform
 
@@ -223,7 +223,7 @@ Once you have the `EXTERNAL-IP`, open it in your browser.
 *For example*, if the IP is `a33bd3f701d5e442abc9828d940699d7-289592184.us-east-2.elb.amazonaws.com`:
 http://a33bd3f701d5e442abc9828d940699d7-289592184.us-east-2.elb.amazonaws.com:5050
 
-![Platform access example](./img/10-platform-access.png)
+<img width="922" height="708" alt="image" src="https://github.com/user-attachments/assets/6eb31cd3-5ea1-422e-a5f0-e4fadd8dbbda" />
 
 ![Login screen](./img/11-login-screen.png)
 
