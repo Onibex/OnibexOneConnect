@@ -3,8 +3,8 @@
 This manual explains the steps to correctly prepare and upload an Excel file to mass configure fields/columns for the tables used in specific entities in your system. Follow these instructions carefully to avoid errors.
 
 > ℹ️ **Note:** Make sure to ask the Onibex team to provide you with the correct Excel file for this process and to have followed the previous steps:
-> - [Entity Creation and Main Customizing](./Entity_Creation_and_Main_Customizing.md)
-> - [Uploading Prepackaged Entities](./Uploading_Prepackaged_Entities.md)
+> - [Entity Creation and Main Customizing](./01-Entity_Creation_and_Main_Customizing.md)
+> - [Uploading Prepackaged Entities](./02-Uploading_Prepackaged_Entities.md)
 
 ---
 
@@ -58,7 +58,7 @@ Navigate to the entity in your system for which you uploaded the fields/columns 
 
 If modifications are necessary, you can adjust the fields directly in the entity. Ensure that any changes are reviewed before proceeding.
 
-For this process, please refer to the [Configuring Table and Field Aliases section](./Entity_Creation_and_Main_Customizing.md) of the Entity Creation manual.
+For this process, please refer to the [Configuring Table and Field Aliases section](./01-Entity_Creation_and_Main_Customizing.md) of the Entity Creation manual.
 
 ---
 
