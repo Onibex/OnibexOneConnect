@@ -11,6 +11,7 @@
 ### 1. Open the OneConnect Transaction
 
 Enter transaction **`ZONT_ONECM`**.
+
 <img width="191" height="121" alt="image" src="https://github.com/user-attachments/assets/63d53586-d5b8-4549-9c8e-d78583b2ce94" />
 
 ### 2. Select and Execute the Entity
