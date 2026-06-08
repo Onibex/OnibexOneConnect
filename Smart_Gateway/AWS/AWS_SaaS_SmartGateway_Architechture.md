@@ -53,7 +53,7 @@ no public internet involved.
 3. **Onibex** then delivers the processed data to the **customer's Target Cloud**
    (Snowflake, Databricks, SAP HANA, ClickHouse) through Private Link.
 
-The customer's VPC also attaches to the TGW, enabling corporate users to connect —
+The customer's VPC also attaches to the TGW, enabling corporate users to connect, 
 optionally via a **VPN Site-to-Site** tunnel, and giving the customer's own applications
 access to the same private routing fabric.
 
