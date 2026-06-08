@@ -4,7 +4,7 @@ Onibex hosts the Smart Gateway in its own AWS Cloud infrastructure. Two connecti
 
 ---
 
-## Option A. VNet Peering + Private ALB
+## Option A. Private ALB
 
 > **Best for:** Customers with on-premise SAP or SAP outside of AWS.
 
@@ -12,7 +12,7 @@ Onibex hosts the Smart Gateway in its own AWS Cloud infrastructure. Two connecti
 
 ### How it works
 
-SAP ECC/S4HANA initiates an outbound **RFC Type G** connection over **HTTP/HTTPS** toward Onibex's AWS Cloud. Connectivity is established through **VNet Peering**, so traffic never traverses the public internet, it flows directly into Onibex's VPC over a private, low-latency channel.
+SAP ECC/S4HANA initiates an outbound **RFC Type G** connection over **HTTP/HTTPS** toward Onibex's AWS Cloud.
 
 Inside Onibex's VPC:
 
