@@ -23,7 +23,7 @@ These standard SAP transactions are required to configure the OneConnect environ
 | **`SM30`** | Access to `ZONT*` custom tables for OneConnect configuration. |
 | **`SNUM`** | Configure number ranges for `ZON*` objects. |
 
-> ℹ️ For step-by-step instructions on configuring the number ranges, see the [Configure Z Range manual](./00-configure-z-range.md).
+> ℹ️ For step-by-step instructions on configuring the number ranges, see the [Configure Z Range manual](./10_Configuring_ID_Ranges.md).
 
 ---
 
@@ -47,7 +47,7 @@ These transactions are used during installation, transport management, and funct
 | **`XD01` / `XD02`** | Create and edit **Customer Master Data** (functional testing). |
 | **`MM01` / `MM02`** | Create and edit **Material Master Data** (functional testing). |
 
-> ℹ️ For detailed instructions on configuring RFC destinations in `SM59`, see the [Endpoint Customization (SM59) manual](./14-endpoint-customization-sm59.md).
+> ℹ️ For detailed instructions on configuring RFC destinations in `SM59`, see the [Endpoint Customization (SM59) manual](./15-Endpoint_Customization_SM59.md).
 
 ---
 
