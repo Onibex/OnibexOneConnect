@@ -8,7 +8,7 @@ Onibex hosts the Smart Gateway in its own AWS Cloud infrastructure. Two connecti
 
 > **Best for:** Customers with on-premise SAP or SAP outside of AWS.
 
-<img width="1564" height="864" alt="smartgateway_NT_ALL_onibex-NEW AWS-SasS" src="https://github.com/user-attachments/assets/5be3d85b-1ed4-4ae6-980a-f4d53a096465" />
+<img width="1411" height="864" alt="smartgateway_NT_ALL_onibex-NEW AWS-SasS_Trad1" src="https://github.com/user-attachments/assets/355346db-260c-481e-aa70-0adb6f7c1eac" />
 
 ## Overview
 
@@ -131,7 +131,7 @@ for regulated industries or customers with policies requiring end-to-end encrypt
 
 > **Best for:** Enterprise customers on SAP RISE in AWS requiring private routing.
 
-<img width="1771" height="1134" alt="smartgateway_NT_ALL_onibex-AWS-SasS" src="https://github.com/user-attachments/assets/fddb385b-884d-454c-8188-0a814f8ebc3e" />
+<img width="1771" height="1088" alt="smartgateway_NT_ALL_onibex-NEW AWS-SasS_TGW1" src="https://github.com/user-attachments/assets/5843aaac-f4dc-4f4c-ae6e-2d5fb8dd1bae" />
 
 
 ### How it works
@@ -142,9 +142,9 @@ no public internet involved.
 
 1. **SAP RISE** connects to the TGW and sends data to Onibex's VPC via RFC Type G / HTTP/HTTPS.
 2. **Onibex** receives the data through its TGW Attachment → ENI → private ALB → Smart Gateway
-   + Kafka Connect (across two AZs).
+   + Kafka Connect.
 3. **Onibex** then delivers the processed data to the **customer's Target Cloud**
-   (Snowflake, Databricks, SAP HANA, ClickHouse) through Private Link.
+   (Snowflake, Databricks, SAP HANA, ClickHouse, etc.) through Private Link.
 
 The customer's VPC also attaches to the TGW, enabling corporate users to connect, 
 optionally via a **VPN Site-to-Site** tunnel, and giving the customer's own applications
@@ -154,8 +154,8 @@ access to the same private routing fabric.
 
 | Dimension | Detail |
 |---|---|
-| Network path | AWS backbone only — no public internet |
-| SAP connectivity | RFC Type G + HTTP/HTTPS via TGW + VNet Peering |
+| Network path | AWS backbone only. No public internet |
+| SAP connectivity | RFC Type G + HTTP/HTTPS via TGW |
 | Customer AWS infra required | TGW attachment + route tables in customer VPC |
 | On-premise / non-AWS SAP | Supported via VPN S2S or AWS Direct Connect |
 | Security | No public IPs anywhere, NACLs + Security Groups |
