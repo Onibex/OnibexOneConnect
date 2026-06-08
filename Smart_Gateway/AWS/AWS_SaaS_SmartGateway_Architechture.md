@@ -4,7 +4,7 @@ Onibex hosts the Smart Gateway in its own AWS Cloud infrastructure. Two connecti
 
 ---
 
-## Option A. Private ALB
+## Option A. Secure Internet Connection
 
 > **Best for:** Customers with on-premise SAP or SAP outside of AWS.
 
