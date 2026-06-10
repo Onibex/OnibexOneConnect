@@ -52,23 +52,90 @@ Run the following command to extract the ZIP file:
 
 ```bash
 unzip SmartGatewayHelmChart.zip
-cd helm-deployment   # folder where Chart.yaml exists
+cd kafka-aws-test   # folder where Chart.yaml exists
 ```
 
 ---
 
-## 2) Install (choose your cloud)
+## 2) Install Strimzi Operator
+
+Strimzi is the Kubernetes operator that manages Kafka clusters declaratively. It must be installed and running before any Kafka resources are applied.
+
+### Step 2.1 — Install via Helm
+
+```bash
+helm install strimzi-operator strimzi-kafka-operator \
+  --repo https://strimzi.io/charts/ \
+  --version 0.51.0 \
+  --namespace kafka \
+  --create-namespace
+```
+
+### Step 2.2 — Verify Operator Health
+
+```bash
+kubectl get pods -n kafka | grep strimzi-cluster-operator
+```
+
+**Expected result:** `strimzi-cluster-operator-xxxx 1/1 Running`
+
+> ℹ️ **Important**
+> Do not proceed to Step 3 until the `strimzi-cluster-operator` pod shows `1/1 Running`. The operator must be healthy before it can process Kafka resources.
+
+---
+
+## 3) Deploy Kafka Stack
+
+Deploy the full Kafka stack: Kafka 4.2 in KRaft mode (not compatible with ZooKeeper), Confluent Schema Registry 7.6.0, and AKHQ (Kafka UI).
+
+AKHQ is the web UI used to inspect topics, consumer groups, and messages in the Kafka cluster.
+
+> ℹ️ **Note**
+> Deployment order matters. Always follow the two phases below in sequence.
+
+### Phase 1 — Deploy the Kafka Cluster
+
+The `--set loadBalancer.type` flag controls whether AKHQ is accessible internally (within the VNet) or externally (from the internet).
+
+```bash
+helm install kafka-platform ./kafka-platform \
+  --namespace kafka \
+  --values kafka-platform/values.yaml \
+  --values kafka-platform/values-azure.yaml \
+  --set loadBalancer.type=external
+```
+
+### Phase 2 — Wait for Kafka Pods
+
+```bash
+kubectl get pods -n kafka -w
+```
+
+All pods must show `1/1 Running` before proceeding:
+
+```
+kafka-cluster-main-pool-0           1/1   Running
+kafka-cluster-entity-operator-xxx   1/1   Running
+schema-registry-xxx                 1/1   Running
+akhq-xxx                            1/1   Running
+```
+
+---
+
+## 4) Install OneConnect (choose your cloud)
 
 > **Note:** The `datasynchub` namespace is created automatically.
 
-Then, execute this command:
+Replace `[Docker-token]` with your Docker Hub personal access token (e.g. `dckr_pat_xxxxxxxxxxxx`), then execute this command:
 
 ```bash
 helm install oneconnect . \
   --namespace oneconnect \
   --create-namespace \
   --values values-azure.yaml \
-  --set dockerHub.token=YOUR_TOKEN
+  --set dockerHub.token=[Docker-token] \
+  --set networking.loadBalancer.type=external \
+  --timeout 15m
 ```
 
 > ⚠️ *Note: Don't forget to insert your token in the command.*
@@ -99,7 +166,45 @@ Look specifically for the **`internal-frontend`** service.
 
 ### Access the platform
 
-Once you have the `EXTERNAL-IP`, open it in your browser.
+Once you have the `EXTERNAL-IP`, open it in your browser on port `5050`.
 
 *For example*, if the IP is `172.184.99.191`:
+```
+http://172.184.99.191:5050
+```
 <img width="922" height="488" alt="image" src="https://github.com/user-attachments/assets/417c6701-1944-4469-9826-13edeeef0531" />
+
+---
+
+## Upgrade
+
+To update an existing deployment:
+
+```bash
+helm upgrade oneconnect . \
+  --namespace oneconnect \
+  --values values-azure.yaml \
+  --set dockerHub.token=[Docker-token]
+```
+
+---
+
+## Uninstall
+
+```bash
+helm uninstall oneconnect --namespace oneconnect
+helm uninstall kafka-platform --namespace kafka
+helm uninstall strimzi-operator --namespace kafka
+```
+
+To also delete the namespaces:
+
+```bash
+kubectl delete namespace oneconnect
+kubectl delete namespace kafka
+kubectl delete namespace datasynchub
+```
+
+---
+
+> ℹ️ **NOTE:** These same steps are valid for the multi-cloud support functionality in ***AKS (Azure)*** or ***GKE (GCP)***.

@@ -78,7 +78,7 @@ aws eks update-kubeconfig --region us-east-2 --name CLUSTER_NAME
 
 ```bash
 unzip SmartGatewayHelmChart.zip
-cd helm-deployment   # folder where Chart.yaml exists
+cd kafka-aws-test   # folder where Chart.yaml exists
 ```
 
 ---
@@ -112,75 +112,54 @@ kubectl get pods -n kafka | grep strimzi-cluster-operator
 
 ## 3. Deploy Kafka Stack
 
-Deploy the full Kafka stack: Kafka 4.2 in KRaft mode (not compatible with ZooKeeper), Confluent Schema Registry 7.6.0, and Kafka Connect.
+Deploy the full Kafka stack: Kafka 4.2 in KRaft mode (not compatible with ZooKeeper), Confluent Schema Registry 7.6.0, and AKHQ (Kafka UI).
 
-Kafka Connect is the component that runs connectors to external databases and platforms such as MySQL and Databricks.
+AKHQ is the web UI used to inspect topics, consumer groups, and messages in the Kafka cluster.
 
 > ℹ️ **Note**
-> Deployment order matters. Always follow the three phases below in sequence.
+> Deployment order matters. Always follow the two phases below in sequence.
 
 ### Phase 1 — Deploy the Kafka Cluster
 
-Replace `[Docker-token]` with your Docker Hub personal access token before running this command.
-
-| Placeholder | Description |
-|---|---|
-| `[Docker-token]` | Your Docker Hub personal access token (e.g. `dckr_pat_xxxxxxxxxxxx`) |
+The `--set loadBalancer.type` flag controls whether AKHQ is accessible internally (within the VPC) or externally (from the internet).
 
 ```bash
 helm install kafka-platform ./kafka-platform \
   --namespace kafka \
   --values kafka-platform/values.yaml \
-  --set dockerHub.token=[Docker-token]
+  --values kafka-platform/values-aws.yaml \
+  --set loadBalancer.type=external
 ```
 
-Expose the AKHQ UI through an internal LoadBalancer:
-
-```bash
-kubectl apply -f - <<EOF
-apiVersion: v1
-kind: Service
-metadata:
-  name: akhq
-  namespace: kafka
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-spec:
-  type: LoadBalancer
-  selector:
-    app: akhq
-  ports:
-    - port: 8080
-      targetPort: 8080
-EOF
-```
-
-Wait until all four pods are **Running** before moving to Phase 2:
+### Phase 2 — Wait for Kafka Pods
 
 ```bash
 kubectl get pods -n kafka -w
 ```
 
-All four pods must show `1/1 Running`:
+All pods must show `1/1 Running` before proceeding:
+
+```
 kafka-cluster-main-pool-0           1/1   Running
-kafka-cluster-main-pool-1           1/1   Running
-kafka-cluster-main-pool-2           1/1   Running
 kafka-cluster-entity-operator-xxx   1/1   Running
+schema-registry-xxx                 1/1   Running
+akhq-xxx                            1/1   Running
+```
 
 ---
 
-## 4. Install (choose your cloud)
+## 4. Install OneConnect (choose your cloud)
 
 > **Note:** The `datasynchub` namespace is created automatically.
 
-Execute this command:
+Replace `[Docker-token]` with your Docker Hub personal access token (e.g. `dckr_pat_xxxxxxxxxxxx`), then execute this command:
 
 ```bash
 helm install oneconnect . \
   --namespace oneconnect \
   --create-namespace \
   --values values-aws.yaml \
-  --set dockerHub.token=YOUR_TOKEN \
+  --set dockerHub.token=[Docker-token] \
   --set networking.loadBalancer.type=external \
   --timeout 15m
 ```
@@ -226,6 +205,37 @@ http://a33bd3f701d5e442abc9828d940699d7-289592184.us-east-2.elb.amazonaws.com:50
 <img width="922" height="708" alt="image" src="https://github.com/user-attachments/assets/6eb31cd3-5ea1-422e-a5f0-e4fadd8dbbda" />
 
 ![Login screen](./img/11-login-screen.png)
+
+---
+
+## Upgrade
+
+To update an existing deployment:
+
+```bash
+helm upgrade oneconnect . \
+  --namespace oneconnect \
+  --values values-aws.yaml \
+  --set dockerHub.token=[Docker-token]
+```
+
+---
+
+## Uninstall
+
+```bash
+helm uninstall oneconnect --namespace oneconnect
+helm uninstall kafka-platform --namespace kafka
+helm uninstall strimzi-operator --namespace kafka
+```
+
+To also delete the namespaces:
+
+```bash
+kubectl delete namespace oneconnect
+kubectl delete namespace kafka
+kubectl delete namespace datasynchub
+```
 
 ---
 
