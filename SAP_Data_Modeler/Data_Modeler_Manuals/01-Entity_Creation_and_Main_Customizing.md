@@ -119,8 +119,6 @@ To remove a column from your selection, double-click on it in the list on the ri
 
 Once the column additions are complete, click **"Back"** to continue.
 
-📺 [Watch video tutorial: Adding Columns](https://www.youtube.com/watch?v=Ddo66vPcxvE](https://www.youtube.com/watch?v=zfHWnxKEfO4)
-
 ---
 
 ## Configuring Table and Field Aliases

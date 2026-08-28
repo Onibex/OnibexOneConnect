@@ -30,3 +30,9 @@ The table below outlines key features of the **SAP Data Modeler**, showcasing ou
 | 20 | Extension of Pre-Packaged Data Products | Extend any of the **150+ pre-packaged Foundational Data Products** from the One Connect Data Market by adding custom tables, CDS Views, and fields, without coding. |
 | 21 | Rapid Installation for Proof of Concept | The prepackaged installation for a proof of concept can be completed in approximately **10 hours**, allowing users to test the tool on their premises within a couple of business days. |
 | 22 | SAP-Verified Integration | The only SAP-verified technology for extracting real-time data and metadata, available in the **SAP Store** and compliant with SAP standards for security, scalability, and licensing. |
+
+## Demo Video
+
+📺 [SAP Data Modeler – Full Product Demo](https://www.youtube.com/watch?v=jh3A1EDTO0o)
+
+A complete walkthrough of the SAP Data Modeler, covering entity creation, table/CDS View joins, field and alias configuration, filters, and real-time/batch execution.
