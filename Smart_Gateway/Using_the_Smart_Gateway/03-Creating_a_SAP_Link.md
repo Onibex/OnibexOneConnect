@@ -158,7 +158,7 @@ Here, you can:
 - Retrieve the **URL needed for the RFC connection in SAP**.
 <img width="1149" height="591" alt="image" src="https://github.com/user-attachments/assets/50626a99-0b8b-4f47-8fb0-d90c349daaf0" />
 
-> ℹ️ For step-by-step instructions on configuring the RFC destination in SAP, see the [Endpoint Customization (SM59) manual](../SAP_Data_Modeler/15-Endpoint_Customization_SM59.md).
+> ℹ️ For step-by-step instructions on configuring the RFC destination in SAP, see the [Endpoint Customization (SM59) manual](../../SAP_Data_Modeler/Data_Modeler_Manuals/15-Endpoint_Customization_SM59.md).
 
 ---
 

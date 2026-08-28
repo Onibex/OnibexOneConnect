@@ -90,7 +90,7 @@ The **"Add Email"** button visibility is controlled by the `NEXT_PUBLIC_SMTP_ENA
 |---|
 | `NEXT_PUBLIC_SMTP_ENABLED=true` |
 
-> 📌 **Note:** This is a system-level configuration. If the SMTP server is not available, your administrator can disable this setting by setting `NEXT_PUBLIC_SMTP_ENABLED=false`. For a complete reference of environment variables, see the [Environment Variables Reference](./09-Environment_Variables.md).
+> 📌 **Note:** This is a system-level configuration. If the SMTP server is not available, your administrator can disable this setting by setting `NEXT_PUBLIC_SMTP_ENABLED=false`. For a complete reference of environment variables, see the [Environment Variables Reference](./10-Environment_Variables.md).
 
 ### Managing Email Recipients
 

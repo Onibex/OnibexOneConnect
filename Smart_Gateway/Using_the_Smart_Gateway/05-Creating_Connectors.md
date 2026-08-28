@@ -9,8 +9,8 @@ Once a connector is created, it will start streaming SAP data from the selected 
 > 📋 **Prerequisites:**
 >
 > - The **SAP Link** must already exist.
-> - **Kafka Connect** must be configured for the SAP Link. If it is not, the **"+ Add Connector"** option will be disabled. See the [Configure Kafka Connect manual](./03-Configure_Kafka_Connect.md).
-> - A **Kafka Secret** must exist with the connection details of the target Kafka environment. See the [Create SAP Link manual](./02-Creating_a_SAP_Link.md) for details.
+> - **Kafka Connect** must be configured for the SAP Link. If it is not, the **"+ Add Connector"** option will be disabled. See the [Configure Kafka Connect manual](./04-Configure_Kafka_Connect.md).
+> - A **Kafka Secret** must exist with the connection details of the target Kafka environment. See the [Create SAP Link manual](./03-Creating_a_SAP_Link.md) for details.
 > - You must have the **connection details for the target destination** (e.g., JDBC URL, username, password) and a valid **Onibex License** if required by the connector.
 
 ---

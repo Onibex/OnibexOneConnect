@@ -4,7 +4,7 @@
 
 Only **administrator users** with the appropriate permissions can add new users to the OneConnect platform.
 
-> 📌 **Prerequisite:** The [Email Service (SMTP)](10-Configuring_Email_Service_SMTP.md) must be configured before adding new users. The platform sends activation and notification emails through this service.
+> 📌 **Prerequisite:** The [Email Service (SMTP)](./01-Configuring_Email_Service_SMTP.md) must be configured before adding new users. The platform sends activation and notification emails through this service.
 
 To access the OneConnect Cloud platform, use the default administrator account that is created automatically. Please contact the Onibex team to obtain the password.
 
@@ -46,28 +46,10 @@ Fill in all the fields and click **"ADD"**.
 
 ## Step 3: Approve the New User
 
-The new user will appear in the **"USERS"** section with a **"PENDING"** status, meaning the user must be approved in order to be activated.
+The new user will appear in the **"USERS"** section. Locate it in the list, click **"ACTIONS"**, and then click **"ACCEPT"** (admin login required) so the user can log in.
 <img width="1299" height="368" alt="image" src="https://github.com/user-attachments/assets/e4d12e2e-3c5e-4b94-8f7c-7d1163b76c0b" />
-
-To activate the user:
-
-1. Locate the user in the list.
-2. Click **"ACTIONS"**.
 <img width="1299" height="368" alt="image" src="https://github.com/user-attachments/assets/99014e24-c853-4e4a-a276-9802f8cc2768" />
-
-3. Click **"ACCEPT"** on the top right side of the screen to activate the new user. (You must be logged in as admin to make this process)
 <img width="1310" height="662" alt="image" src="https://github.com/user-attachments/assets/301ce46d-bbe9-49c0-91ff-fceb93233644" />
-
----
-
-## Step 4: Verify Activation
-
-Your new user has been successfully approved. You can verify the status change to **"ACTIVE"** in the **"USERS"** section.
-
-| Status | Meaning |
-|---|---|
-| **PENDING** | The user has been added but not yet approved. Cannot log in. |
-| **ACTIVE** | The user has been approved and can log in to the platform. |
 
 ---
 
@@ -78,6 +60,4 @@ The complete workflow for adding a new user is:
 1. Log in as an administrator.
 2. Navigate to **Menu → Users**.
 3. Click **"ADD"** and complete the required fields.
-4. Locate the new user (status: **PENDING**).
-5. Click **ACTIONS → ACCEPT** to activate.
-6. Confirm the status changes to **ACTIVE**.
+4. Click **ACTIONS → ACCEPT** next to the new user so they can log in.

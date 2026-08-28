@@ -18,9 +18,8 @@ When set to `"true"` (default), the following features are **enabled**:
 
 | Feature | Description |
 |---|---|
-| **User Creation** | The **"Add User"** button appears in the Users section, allowing administrators to create new user accounts. New users receive their activation credentials via email. |
+| **User Creation** | The **"Add User"** button appears in the Users section, allowing administrators to create and approve new user accounts. New users receive their activation credentials via email. |
 | **Email Log Notifications** | The **"Add Email"** button appears in the Logs section, allowing users to configure email notifications for `ERROR` and `FATAL` log events. |
-| **Pending User Approvals** | The user approval workflow (PENDING → ACTIVE) is available for administrators. |
 
 ### When to Disable
 

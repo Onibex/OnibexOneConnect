@@ -7,7 +7,7 @@ This manual describes how to grant access to an existing SAP Link to another use
 > 📋 **Prerequisites:**
 >
 > - **Administrator account credentials.** Only administrators can modify SAP Link access permissions.
-> - The **email address** of the user who will receive access. This user must already exist in the OneConnect platform. If not, see the [Add a New User manual](./01-Adding_New_Users.md).
+> - The **email address** of the user who will receive access. This user must already exist in the OneConnect platform. If not, see the [Add a New User manual](./02-Adding_New_Users.md).
 
 ---
 

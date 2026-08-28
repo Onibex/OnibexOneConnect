@@ -4,7 +4,7 @@
 
 The logs module can send email notifications when `ERROR` or `FATAL` logs are detected. By default, this feature is **disabled**. To enable it, configure the following settings.
 
-> 📌 **Prerequisite:** The [Email Service (SMTP)](10-Configuring_Email_Service_SMTP.md) must be configured first.
+> 📌 **Prerequisite:** The [Email Service (SMTP)](./01-Configuring_Email_Service_SMTP.md) must be configured first.
 
 ---
 

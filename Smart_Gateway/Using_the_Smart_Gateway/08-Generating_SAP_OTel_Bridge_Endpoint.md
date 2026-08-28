@@ -6,7 +6,7 @@ The **SAP OTel Bridge** (also referred to as **Traceability**) is an endpoint th
 
 > 📋 **Prerequisites:**
 >
-> - An existing **SAP Link** created in your OneConnect environment. If you don't have one, see the [Creating a SAP Link manual](./02-Creating_a_SAP_Link.md).
+> - An existing **SAP Link** created in your OneConnect environment. If you don't have one, see the [Creating a SAP Link manual](./03-Creating_a_SAP_Link.md).
 > - The SAP Link must be accessible from your user session.
 
 ---
@@ -106,7 +106,7 @@ To confirm the Traceability bridge is working:
 2. Navigate to the **Logs** section of your SAP Link.
 3. Filter by **Source = SAP** to view SAP-side errors with full traceability data.
 
-> 💡 **Tip:** For detailed information on how to work with logs, see the [Working with Logs manual](./06-Working_with_Logs.md).
+> 💡 **Tip:** For detailed information on how to work with logs, see the [Working with Logs manual](./07-Working_with_Logs.md).
 
 ---
 

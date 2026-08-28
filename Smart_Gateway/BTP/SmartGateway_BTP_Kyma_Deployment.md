@@ -463,7 +463,7 @@ With the service channels active, create an HTTP destination in your SAP system:
 | **Protocol** | HTTP |
 | **Path Prefix** | `/your-endpoint-path` |
 
-> ℹ️ For step-by-step instructions on configuring `SM59`, see the [Endpoint Customization (SM59) manual](../SAP_Data_Modeler/14-endpoint-customization-sm59.md).
+> ℹ️ For step-by-step instructions on configuring `SM59`, see the [Endpoint Customization (SM59) manual](../../SAP_Data_Modeler/Data_Modeler_Manuals/15-Endpoint_Customization_SM59.md).
 
 ### Step 7.7: Test the Tunnel
 

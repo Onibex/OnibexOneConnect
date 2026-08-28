@@ -2,17 +2,30 @@
 
 Documentation and manuals for **Onibex's Smart Gateway**.
 
-This folder contains step-by-step deployment guides for installing and
-configuring the Smart Gateway across the following cloud platforms:
+---
 
-- ☁️ **AWS** — Amazon Web Services
-- 🔷 **Azure** — Microsoft Azure
-- 🟡 **GCP** — Google Cloud Platform
-- 🟦 **BTP** — SAP Business Technology Platform
+## 📚 Contents
 
-Each guide walks you through the prerequisites, deployment process, and
-initial configuration required to get the Smart Gateway up and running in
-the target environment.
+This folder is organized into two kinds of guides: **deploying** the Smart Gateway infrastructure, and **using** it once it's running.
+
+### Deployment guides (infrastructure)
+
+Step-by-step guides for installing and configuring the Smart Gateway on a given cloud platform. Each one walks you through the prerequisites, deployment process, and initial configuration required to get the Smart Gateway up and running in that environment.
+
+- ☁️ [**AWS**](./AWS/) — Amazon EKS (BYOC and SaaS architectures, Helm chart guide)
+- 🔷 [**Azure**](./Azure/) — Azure AKS (BYOC and SaaS architectures, Helm chart guide)
+- 🟦 [**BTP**](./BTP/) — SAP Business Technology Platform / Kyma (Cloud Connector deployment)
+- 🟡 **GCP** — Google Cloud GKE. Supported through the same multi-cloud Helm chart used for AWS/Azure (see the note at the end of each Helm chart guide), but a dedicated GCP architecture guide is not yet published.
+
+See [Minimum_Requirements.md](./Minimum_Requirements.md) for the infrastructure sizing reference across all four platforms.
+
+### Usage guide (day-to-day operation)
+
+Once the Smart Gateway is deployed and reachable, this is where you configure it: users, SAP Links, Kafka Connect, connectors, logs, and alerts.
+
+- 🛠️ [**Using the Smart Gateway**](./Using_the_Smart_Gateway/) — adding users, creating SAP Links, configuring Kafka Connect and connectors, granting access, working with logs, traceability, and email alerts.
+
+---
 
 # Introduction
 
