@@ -12,7 +12,7 @@ This repository is the central documentation hub for the OneConnect suite. It wa
 
 OneConnect data flows through three main stages, each handled by a dedicated component. Read them in order to understand the full journey of your SAP data:
 
-### 1. 🧩 [SAP Data Modeler](./SAP_Data_Modeler)
+### 1.  [SAP Data Modeler](./SAP_Data_Modeler)
 
 **Where you decide what SAP data to extract and how it should look.**
 
@@ -29,7 +29,7 @@ The SAP Data Modeler is a low-code / no-code tool that lives inside your SAP sys
 
 ---
 
-### 2. 🌉 [Smart Gateway](./Smart_Gateway)
+### 2.  [Smart Gateway](./Smart_Gateway)
 
 **Where your SAP data is transformed into streams the rest of the world can consume.**
 
@@ -76,7 +76,7 @@ Supported destinations include **Databricks**, **Snowflake**, **ClickHouse**, an
 
 Beyond the three main components, this repository also contains reference material to support your understanding and adoption of OneConnect:
 
-### 📚 [Technical Information](./Technical_Information)
+###  [Technical Information](./Technical_Information)
 
 Product-level documentation about OneConnect as a whole, useful for evaluators, architects, and anyone new to the platform. This folder includes:
 
@@ -87,7 +87,7 @@ Product-level documentation about OneConnect as a whole, useful for evaluators, 
 - **The 15-Hour Business Value Challenge:** the zero-risk PoC offer.
 - **Frequently Asked Questions.**
 
-### 💼 [Business Solutions](./Business_Solutions)
+###  [Business Solutions](./Business_Solutions)
 
 Ready-to-run solution stacks and reference architectures that turn the data delivered by OneConnect into real business value on the consumption side (visualization, analytics, alerting). This folder includes:
 
