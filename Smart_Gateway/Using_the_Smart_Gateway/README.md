@@ -1,6 +1,6 @@
 # Using the Smart Gateway
 
-This folder contains the **day-to-day operation guide** for the Smart Gateway: once the platform is already deployed and running, these manuals walk you through configuring users, connecting SAP, streaming data to downstream destinations, and monitoring the whole pipeline.
+This folder contains the **general configurations** for the Smart Gateway: once the platform is already deployed and running, these manuals walk you through configuring users, connecting SAP, streaming data to downstream destinations, and monitoring the whole pipeline.
 
 > ℹ️ Looking to deploy the Smart Gateway infrastructure itself (on AWS, Azure, or SAP BTP)? See the [AWS](../AWS/), [Azure](../Azure/), or [BTP](../BTP/) folders instead. This folder assumes the platform is already up and reachable in a browser.
 
