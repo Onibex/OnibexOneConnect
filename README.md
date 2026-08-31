@@ -1,90 +1,137 @@
 <img width="1175" height="431" alt="image" src="https://github.com/user-attachments/assets/53e906b2-d9f2-4633-8392-d48145593fb4" />
 
-
 # OneConnect
 
-**OneConnect** is a real-time data integration platform that connects to SAP
-systems and streams data to multiple destinations with minimal latency. It
-enables organizations to unlock the value of their SAP data by making it
-available in real time to downstream systems such as data lakes, analytics
-platforms, and third-party applications without relying on traditional
-batch extraction methods.
+**OneConnect** is a real-time data integration platform that connects SAP systems to modern cloud destinations with minimal latency. It replaces slow, resource-intensive batch jobs with a continuous, event-driven flow of data, so your SAP information becomes instantly available to data lakes, analytics platforms, AI models, and third-party applications, without stressing your SAP core.
 
-The platform is built around two core components:
+This repository is the central documentation hub for the OneConnect suite. It walks you through the platform end to end, from modeling your SAP data all the way to delivering it into your target cloud environment.
 
-- **SAP Data Modeler**: models, designs, and structures SAP data for
-  extraction, defining which entities, tables, and views are exposed for
-  integration.
-- **Smart Gateway**: acts as the connectivity bridge, capturing changes
-  from SAP in real time and routing them to one or multiple target
-  destinations.
+---
 
-Together, these components replace slow, resource-intensive batch jobs with
-a continuous, event-driven flow of data, supporting use cases like
-real-time analytics, operational reporting, data replication to cloud
-platforms, and synchronization across enterprise systems, all while
-reducing the load on SAP's core infrastructure.
+## How OneConnect Works: The End-to-End Story
 
-This repository serves as the central documentation hub for the OneConnect
-suite, bringing together installation, configuration, operation, and
-troubleshooting guides in a single place, organized by product.
+OneConnect data flows through three main stages, each handled by a dedicated component. Read them in order to understand the full journey of your SAP data:
 
-## Contents
+### 1. 🧩 [SAP Data Modeler](./SAP_Data_Modeler)
 
-The repository is organized into four main folders:
+**Where you decide what SAP data to extract and how it should look.**
 
-### [SAP Data Modeler](./SAP_Data_Modeler)
+The SAP Data Modeler is a low-code / no-code tool that lives inside your SAP system. It's the starting point of every OneConnect deployment. From here, you design your **SAP Data Products**, which are business-meaningful entities (like Customer, Sales Order, Delivery, or Invoice) built by joining SAP tables and CDS Views through simple drag-and-drop configuration.
 
-Tool for modeling and designing data structures oriented to SAP environments.
-This folder includes:
+**What you can do with the Data Modeler:**
 
-- Installation guide
-- Initial configuration manual
-- Use cases and best practices
-- Troubleshooting for common issues
+- Define which SAP entities, tables, and CDS Views are exposed for integration.
+- Choose between real-time (event-driven) or batch extraction modes.
+- Assign SAP-native event triggers (BOR, RAP, BTE, PPF) to stream data as soon as it changes in SAP.
+- Reprocess historical data, monitor logs, and manage variants.
 
-### [Smart Gateway](./Smart_Gateway)
+📖 Explore the [SAP Data Modeler documentation](./SAP_Data_Modeler) to learn how to install, configure, and operate it.
 
-Connectivity and integration component that acts as a bridge between SAP
-systems and target destinations, enabling real-time data flow. This folder
-includes:
+---
 
-- Installation guide and prerequisites
-- Connection configuration
-- Administration manual
-- Troubleshooting for common issues
+### 2. 🌉 [Smart Gateway](./Smart_Gateway)
 
-### [Technical Information](./Technical_Information)
+**Where your SAP data is transformed into streams the rest of the world can consume.**
 
-General and business-oriented documentation about the OneConnect platform as
-a whole, independent of a specific component. This folder includes:
+Once your entities are defined in the Data Modeler, the **Smart Gateway** takes over. It's a Kubernetes-based engine that receives data and metadata from SAP and translates them into standard streaming formats: **Apache Kafka topics** and **Avro schemas** managed by the **Confluent Schema Registry**.
 
-- OneConnect overview
-- Architecture and components
-- Onibex Marketplace
-- Premium connectors
-- The 15-hour business value challenge
-- Frequently asked questions (FAQ)
+The Smart Gateway is the bridge between your SAP world and the modern data ecosystem. It handles high-volume, real-time data flows while remaining cloud-agnostic and horizontally scalable.
 
-### [Business Solutions](./Business_Solutions)
+**Where the Smart Gateway can run:**
 
-Ready-to-run solution stacks and reference architectures that turn the data
-delivered by OneConnect into business value on the consumption side
-(visualization, analytics, alerting). This folder includes:
+- **AWS** (EKS).
+- **Azure** (AKS).
+- **GCP** (GKE).
+- **SAP BTP Kyma**.
 
-- Deployment artifacts (configuration as code, container definitions)
-- Step-by-step integration manuals
-- Cost and licensing analyses
+You can also choose between deployment models:
 
-## How to use this repository
+- **SaaS** (Onibex-hosted).
+- **BYOC** (Bring Your Own Cloud, deployed in your own account).
 
-1. Navigate to the folder of the product you're interested in
-   (**Data Modeler**, **Smart Gateway**, **Technical Information**, or
-   **Business Solutions**).
-2. Start with the `README.md` inside the folder, which serves as the index.
-3. Open the specific manual you need to consult.
+📖 Explore the [Smart Gateway documentation](./Smart_Gateway) for architecture guides, deployment manuals, and configuration references.
 
-All documents are in Markdown (`.md`) format, so they render directly on
-GitHub with no need to download them.
+---
 
-_Maintained by [Onibex](https://github.com/onibex)._
+### 3. 🔗 Kafka Connectors
+
+**Where your data lands in its final destination.**
+
+Once your SAP data is flowing through Kafka topics inside the Smart Gateway, the final step is delivering it to your target platform. This is where **Kafka Connectors** come in: they consume the Kafka topics and write the data into destinations like Databricks, Snowflake, ClickHouse, and more.
+
+Onibex offers **Premium Kafka Connectors** that are **Confluent Gold-Verified**, meaning they meet Confluent's highest standards for reliability, performance, and enterprise readiness. These connectors support:
+
+- **Automatic table creation and schema evolution** in the target system.
+- **INSERT, UPDATE, DELETE** operations (full CDC support).
+- **Idempotent writes** to avoid duplicates on retries.
+- **OAuth-based security** for enterprise authentication.
+
+Supported destinations include **Databricks**, **Snowflake**, **ClickHouse**, and many more.
+
+📖 Kafka Connectors configuration is covered as part of the [Smart Gateway](./Smart_Gateway) deployment.
+
+---
+
+## Reference Material
+
+Beyond the three main components, this repository also contains reference material to support your understanding and adoption of OneConnect:
+
+### 📚 [Technical Information](./Technical_Information)
+
+Product-level documentation about OneConnect as a whole, useful for evaluators, architects, and anyone new to the platform. This folder includes:
+
+- **OneConnect Overview:** what OneConnect is, the problems it solves, and the value it delivers.
+- **Architecture and Components:** technical breakdown of the platform.
+- **Onibex Marketplace:** 150+ pre-packaged SAP Data Products, ready to deploy.
+- **Premium Connectors:** deep dive into the Confluent Gold-Verified connectors.
+- **The 15-Hour Business Value Challenge:** the zero-risk PoC offer.
+- **Frequently Asked Questions.**
+
+### 💼 [Business Solutions](./Business_Solutions)
+
+Ready-to-run solution stacks and reference architectures that turn the data delivered by OneConnect into real business value on the consumption side (visualization, analytics, alerting). This folder includes:
+
+- Deployment artifacts (configuration as code, container definitions).
+- Step-by-step integration manuals.
+- Cost and licensing analyses.
+
+---
+
+## How to Use This Repository
+
+This repository is organized as a step-by-step journey. Follow the folders in order to go from designing your first SAP Data Product all the way to consuming your data in production:
+
+### 1. [SAP Data Modeler](./SAP_Data_Modeler)
+
+Start here to model and prepare your SAP data. Learn how to define entities, configure event triggers, and design SAP Data Products directly inside your SAP system.
+
+### 2. [Smart Gateway Deployment](./Smart_Gateway)
+
+Once your data is modeled, deploy the Smart Gateway to stream it. This folder covers architecture, deployment guides for AWS, Azure, GCP, and BTP Kyma, and the SaaS vs BYOC options.
+
+### 3. [Using the Smart Gateway](./Smart_Gateway/Using_the_Smart_Gateway)
+
+With the Smart Gateway deployed, learn how to operate it day-to-day: manage users, configure SAP Connectors, set up Kafka Connect, add specific connectors to your destinations (Snowflake, Databricks, ClickHouse), and grant access to SAP Links.
+
+### 4. [Technical Information](./Technical_Information)
+
+Refer to this folder anytime you have general questions about the platform, its architecture, its components, or the business value it delivers. It also contains the OneConnect FAQ.
+
+### 5. [Business Solutions](./Business_Solutions)
+
+Once your data is flowing, explore ready-to-run solution stacks and reference architectures that turn OneConnect data into real business value on the consumption side (visualization, analytics, alerting).
+
+All documents are in Markdown (`.md`) format and render directly on GitHub. No downloads needed.
+
+---
+
+## Related Solutions
+
+OneConnect is part of the broader Onibex ecosystem. Learn more about our other products:
+
+- **[ASK. Agentic Semantic Knowledge](https://github.com/Onibex/agentic-semantic-knowledge-ask)** — AI-powered semantic querying over your SAP Data Products.
+- **[eCommerce 360°](https://github.com/Onibex/ecommerce-docs)** — The B2B/B2C commerce platform natively integrated with SAP.
+
+---
+
+_Maintained by [Onibex](https://github.com/Onibex)._
