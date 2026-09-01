@@ -43,6 +43,7 @@ The Smart Gateway is the bridge between your SAP world and the modern data ecosy
 - **Azure** (AKS).
 - **GCP** (GKE).
 - **SAP BTP Kyma**.
+- **Docker (Any system)**.
 
 You can also choose between deployment models:
 
@@ -57,7 +58,7 @@ You can also choose between deployment models:
 
 **Where your data lands in its final destination.**
 
-Once your SAP data is flowing through Kafka topics inside the Smart Gateway, the final step is delivering it to your target platform. This is where **Kafka Connectors** come in: they consume the Kafka topics and write the data into destinations like Databricks, Snowflake, ClickHouse, and more.
+Once your SAP data is flowing through Kafka topics inside the Smart Gateway, the final step is delivering it to your target platform. This is where **Kafka Connectors** come in: they consume the Kafka topics and write the data into destinations like Databricks, PostgreSQL, Snowflake, ClickHouse, and more.
 
 Onibex offers **Premium Kafka Connectors** that are **Confluent Gold-Verified**, meaning they meet Confluent's highest standards for reliability, performance, and enterprise readiness. These connectors support:
 
@@ -66,7 +67,7 @@ Onibex offers **Premium Kafka Connectors** that are **Confluent Gold-Verified**,
 - **Idempotent writes** to avoid duplicates on retries.
 - **OAuth-based security** for enterprise authentication.
 
-Supported destinations include **Databricks**, **Snowflake**, **ClickHouse**, and many more.
+Supported destinations include **Databricks**, **PostgreSQL** **Snowflake**, **ClickHouse**, and many more.
 
 📖 Kafka Connectors configuration is covered as part of the [Smart Gateway](./Smart_Gateway) deployment.
 
