@@ -43,7 +43,7 @@ The Smart Gateway is the bridge between your SAP world and the modern data ecosy
 - **Azure** (AKS).
 - **GCP** (GKE).
 - **SAP BTP Kyma**.
-- **Docker (Any system)**.
+- **Docker (any OS with Docker installed)**.
 
 You can also choose between deployment models:
 
