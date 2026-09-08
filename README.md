@@ -103,7 +103,7 @@ Ready-to-run solution stacks and reference architectures that turn the data deli
 This repository is organized as a step-by-step journey. Follow the folders in order to go from designing your first SAP Data Product all the way to consuming your data in production:
 
 ~~~
-1. Model  →  2. Deploy  →  3. Operate  →  4. Reference  →  5. Consume
+1. Model  →  2. Activate  →  3. Connect 
 ~~~
 
 ### 1. [SAP Data Modeler](./SAP_Data_Modeler)
